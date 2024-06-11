@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "37fc40f2-f5ba-47f1-9460-3790fe3537c9",
+		"name": "M295",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31483250"
+	},
+	"item": [
+		{
+			"name": "4.1",
+			"item": [
+				{
+					"name": "html page",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.zli.ch",
+							"protocol": "https",
+							"host": [
+								"www",
+								"zli",
+								"ch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "404",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.zli.ch/music",
+							"protocol": "https",
+							"host": [
+								"www",
+								"zli",
+								"ch"
+							],
+							"path": [
+								"music"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://picsum.photos/200",
+							"protocol": "https",
+							"host": [
+								"picsum",
+								"photos"
+							],
+							"path": [
+								"200"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pokemon",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pokeapi.co/api/v2/pokemon/graveler",
+							"protocol": "https",
+							"host": [
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"v2",
+								"pokemon",
+								"graveler"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cat fact",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://cat-fact.herokuapp.com/#/cat/facts",
+							"protocol": "https",
+							"host": [
+								"cat-fact",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								""
+							],
+							"hash": "/cat/facts"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "JSON",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/todos/",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"todos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1,\r\n    \"title\": \"Hello, World!\",\r\n    \"completed\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/posts",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

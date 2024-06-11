@@ -1,0 +1,122 @@
+[
+    {
+        "isbn": "9781234567890",
+        "title": "The Mysterious Island",
+        "year": 2021,
+        "author": "John Smith"
+    },
+    {
+        "isbn": "9782345678901",
+        "title": "Journey to the Center of the Earth",
+        "year": 2020,
+        "author": "Jane Doe"
+    },
+    {
+        "isbn": "9783456789012",
+        "title": "Around the World in Eighty Days",
+        "year": 2019,
+        "author": "Emily Johnson"
+    },
+    {
+        "isbn": "9784567890123",
+        "title": "Twenty Thousand Leagues Under the Sea",
+        "year": 2018,
+        "author": "Michael Brown"
+    },
+    {
+        "isbn": "9785678901234",
+        "title": "The War of the Worlds",
+        "year": 2017,
+        "author": "Chris Davis"
+    },
+    {
+        "isbn": "9786789012345",
+        "title": "The Time Machine",
+        "year": 2016,
+        "author": "Sarah Wilson"
+    },
+    {
+        "isbn": "9787890123456",
+        "title": "The Invisible Man",
+        "year": 2015,
+        "author": "David Martinez"
+    },
+    {
+        "isbn": "9788901234567",
+        "title": "The First Men in the Moon",
+        "year": 2014,
+        "author": "Laura Garcia"
+    },
+    {
+        "isbn": "9789012345678",
+        "title": "The Island of Doctor Moreau",
+        "year": 2013,
+        "author": "James Anderson"
+    },
+    {
+        "isbn": "9780123456789",
+        "title": "The Sleeper Awakes",
+        "year": 2012,
+        "author": "Mary Taylor"
+    },
+    {
+        "isbn": "9781123456789",
+        "title": "The Food of the Gods",
+        "year": 2011,
+        "author": "Robert Thomas"
+    },
+    {
+        "isbn": "9782123456789",
+        "title": "In the Days of the Comet",
+        "year": 2010,
+        "author": "Patricia Moore"
+    },
+    {
+        "isbn": "9783123456789",
+        "title": "The War in the Air",
+        "year": 2009,
+        "author": "Charles Martinez"
+    },
+    {
+        "isbn": "9784123456789",
+        "title": "The New Machiavelli",
+        "year": 2008,
+        "author": "Barbara Anderson"
+    },
+    {
+        "isbn": "9785123456789",
+        "title": "The World Set Free",
+        "year": 2007,
+        "author": "Thomas Harris"
+    },
+    {
+        "isbn": "9786123456789",
+        "title": "The Shape of Things to Come",
+        "year": 2006,
+        "author": "Jennifer Clark"
+    },
+    {
+        "isbn": "9787123456789",
+        "title": "The Holy Terror",
+        "year": 2005,
+        "author": "Paul Lewis"
+    },
+    {
+        "isbn": "9788123456789",
+        "title": "Star Begotten",
+        "year": 2004,
+        "author": "Nancy Robinson"
+    },
+    {
+        "isbn": "9789123456789",
+        "title": "The Camford Visitation",
+        "year": 2003,
+        "author": "Gary Walker"
+    },
+    {
+        "isbn": "9780123456790",
+        "title": "Boon",
+        "year": 2002,
+        "author": "Karen Hall"
+    }
+]
