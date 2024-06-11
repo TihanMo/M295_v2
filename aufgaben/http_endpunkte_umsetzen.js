@@ -85,7 +85,7 @@ app.delete('/name', (req, res) => {
     if (names.length !== 0) {
         const index = names.findIndex(name => name.firstName === firstName && name.lastName === lastName)
         if (index !== -1) {
-            names.splice(index, 1);
+            names.splice(index, 1)
             fs.writeFileSync(__dirname + '/names.json', JSON.stringify(names, null, 2))
             res.status(200).send(`${firstName} ${lastName} was successfully deleted`)
         } else {
