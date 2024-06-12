@@ -153,3 +153,13 @@ Einen Endpunkt DELETE /names, der den Eintrag aus der Namensliste entfernt und d
 Einen Endpunkt GET /secret2, der den Header "Authorization" ausliest und 200 zurück gibt, wenn im Header "Basic aGFja2VyOjEyMzQ=" steht und ansonsten 401 zurück gibt  
 Einen Endpunkt GET /chuck, welcher einen zufälligen Witz von der Chuck Norris API abfragt. Im Text wird "Chuck Norris" dann durch den Wert ersetzt, der per Query Paramter ?name= mitegegeben wurde  
 Einen Endpunkt PATCH /me, der ein JSON Objekt entgegennimmt und die Werte, die mitgegeben wurden, im bisherigen me-Objekt überschreiben  
+
+## Aufgabe 7.1: Basic Auth mit Express
+
+Implementieren Sie eine Express Applikation mit Basic Auth Funktionalität.
+
+Implementieren Sie einen Endpunkt GET /public, welcher ohne Login zugänglich ist
+Implementieren Sie einen Endpunkt GET /private, welcher nur nach eingabe von Benutzername «zli» und Passwort zugänglich «zli1234» ist und sonst einen entsprechenden HTTP Status Code zurück gibt
+Optional: Lagern Sie Benutzername und Passwort in ENV-Variabeln aus
+Testen Sie die Endpunkte mit Hoppscotch oder Postman
+

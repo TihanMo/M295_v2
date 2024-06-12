@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>public</title>
+</head>
+<body>
+    <h1>Very public Website</h1>
+    <button onclick="refreshPage()">Refresh Page</button><br><br>
+    <img src="https://cataas.com/cat?type=medium" alt="cat">
+    
+    <form id="loginForm" onsubmit="return submitForm(event)">
+        <input type="text" id="username" placeholder="username" required>
+        <input type="password" id="password" placeholder="password" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function refreshPage() {
+            window.location.reload()
+        }
+
+        function submitForm(event) {
+            event.preventDefault()
+
+            const username = document.getElementById('username').value
+            const password = document.getElementById('password').value
+            const headers = new Headers()
+            headers.append('Authorization', 'Basic ' + btoa(username + ':' + password))
+
+            fetch('/private', {
+                method: 'GET',
+                headers: headers
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.text()
+                } else {
+                    throw new Error('Access denied')
+                }
+            })
+            .then(html => {
+                document.open()
+                document.write(html)
+                document.close()
+            })
+            .catch(error => {
+                alert(error.message)
+            })
+        }
+    </script>
+</body>
+</html>
