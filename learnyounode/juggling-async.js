@@ -18,7 +18,7 @@ function httpGet(index) {
         return console.error(err)
       }
       results[index] = data.toString()
-      count++;
+      count++
       if (count === urls.length) {
         printResults()
       }

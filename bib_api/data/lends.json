@@ -1,0 +1,142 @@
+[
+  {
+    "id": 2,
+    "customer_id": 2,
+    "isbn": "519702898-X",
+    "borrowed_at": "24.03.2024",
+    "returned_at": "13.09.2023"
+  },
+  {
+    "id": 3,
+    "customer_id": 3,
+    "isbn": "765848977-8",
+    "borrowed_at": "17.03.2024",
+    "returned_at": "07.03.2024"
+  },
+  {
+    "id": 4,
+    "customer_id": 4,
+    "isbn": "449039640-6",
+    "borrowed_at": "12.11.2023",
+    "returned_at": "04.03.2024"
+  },
+  {
+    "id": 5,
+    "customer_id": 5,
+    "isbn": "796637083-6",
+    "borrowed_at": "03.03.2024",
+    "returned_at": "09.04.2024"
+  },
+  {
+    "id": 6,
+    "customer_id": 6,
+    "isbn": "300004607-0",
+    "borrowed_at": "23.02.2024",
+    "returned_at": "02.07.2023"
+  },
+  {
+    "id": 7,
+    "customer_id": 7,
+    "isbn": "776151887-4",
+    "borrowed_at": "27.06.2023",
+    "returned_at": null
+  },
+  {
+    "id": 8,
+    "customer_id": 8,
+    "isbn": "241336561-3",
+    "borrowed_at": "04.02.2024",
+    "returned_at": "25.08.2023"
+  },
+  {
+    "id": 9,
+    "customer_id": 9,
+    "isbn": "702126303-1",
+    "borrowed_at": "10.06.2024",
+    "returned_at": "27.01.2024"
+  },
+  {
+    "id": 10,
+    "customer_id": 10,
+    "isbn": "504387415-5",
+    "borrowed_at": "30.09.2023",
+    "returned_at": "22.01.2024"
+  },
+  {
+    "id": 11,
+    "customer_id": 11,
+    "isbn": "475131836-5",
+    "borrowed_at": "08.08.2023",
+    "returned_at": "01.07.2023"
+  },
+  {
+    "id": 12,
+    "customer_id": 12,
+    "isbn": "630495271-6",
+    "borrowed_at": "12.05.2024",
+    "returned_at": "22.12.2023"
+  },
+  {
+    "id": 13,
+    "customer_id": 13,
+    "isbn": "205786941-5",
+    "borrowed_at": "07.12.2023",
+    "returned_at": null
+  },
+  {
+    "id": 14,
+    "customer_id": 14,
+    "isbn": "059469206-7",
+    "borrowed_at": "07.11.2023",
+    "returned_at": null
+  },
+  {
+    "id": 15,
+    "customer_id": 15,
+    "isbn": "215426522-7",
+    "borrowed_at": "03.05.2024",
+    "returned_at": "16.07.2023"
+  },
+  {
+    "id": 16,
+    "customer_id": 16,
+    "isbn": "310147572-4",
+    "borrowed_at": "11.11.2023",
+    "returned_at": "11.11.2023"
+  },
+  {
+    "id": 17,
+    "customer_id": 17,
+    "isbn": "756017242-3",
+    "borrowed_at": "14.01.2024",
+    "returned_at": "27.12.2023"
+  },
+  {
+    "id": 18,
+    "customer_id": 18,
+    "isbn": "403773081-2",
+    "borrowed_at": "10.03.2024",
+    "returned_at": "19.04.2024"
+  },
+  {
+    "id": 19,
+    "customer_id": 19,
+    "isbn": "713023600-0",
+    "borrowed_at": "26.02.2024",
+    "returned_at": "13.02.2024"
+  },
+  {
+    "id": 20,
+    "customer_id": 20,
+    "isbn": "710654792-1",
+    "borrowed_at": "03.02.2024",
+    "returned_at": "04.01.2024"
+  },
+  {
+    "id": "fb7afb15-2aa1-4fea-8a5a-28cdbe7496e8",
+    "customer_id": 1,
+    "isbn": "724895934-0",
+    "borrowed_at": "2024-06-12T07:32:57.332Z",
+    "returned_at": null
+  }
+]
