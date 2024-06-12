@@ -54,7 +54,7 @@ app.post('/books', (req, res) => {
 
     if (newBook) {
         books.push(newBook)
-        fs.writeFile(path.join(__dirname, 'books.json'), JSON.stringify(books, null, 2), (err) => {
+        fs.writeFile(path.join(__dirname, 'data/books.json'), JSON.stringify(books, null, 2), (err) => {
             if (err) {
                 console.error('Error writing books', err)
                 return res.sendStatus(500)
@@ -82,7 +82,7 @@ app.put('/books/:isbn', (req, res) => {
 
     books[bookIndex] = updatedBook
 
-    fs.writeFile(path.join(__dirname, 'books.json'), JSON.stringify(books, null, 2), (err) => {
+    fs.writeFile(path.join(__dirname, 'data/books.json'), JSON.stringify(books, null, 2), (err) => {
         if (err) {
             console.error('Error writing books', err)
             return res.sendStatus(500)
@@ -108,7 +108,7 @@ app.delete('/books/:isbn', (req, res) =>{
 
     books.splice(bookIndex, 1)
 
-    fs.writeFile(path.join(__dirname, 'books.json'), JSON.stringify(books, null, 2), (err) => {
+    fs.writeFile(path.join(__dirname, 'data/books.json'), JSON.stringify(books, null, 2), (err) => {
         if (err) {
             console.error('Error deleting books', err)
             return res.sendStatus(500)
@@ -137,7 +137,7 @@ app.patch('/books/:isbn', (req, res) => {
         bookToUpdate[key] = updatedFields[key]
     })
 
-    fs.writeFile(path.join(__dirname, 'books.json'), JSON.stringify(books, null, 2), (err) => {
+    fs.writeFile(path.join(__dirname, 'data/books.json'), JSON.stringify(books, null, 2), (err) => {
         if (err) {
             console.error('Error writing books', err)
             return res.sendStatus(500)
@@ -199,7 +199,7 @@ app.post('/lends', (req, res) => {
 
     lends.push(newLend)
 
-    fs.writeFile(path.join(__dirname, '/data/lends.json'), JSON.stringify(lends, null, 2), (err) => {
+    fs.writeFile(path.join(__dirname, 'data/lends.json'), JSON.stringify(lends, null, 2), (err) => {
         if (err) {
             console.error('Error writing lends', err)
             return res.sendStatus(500)
@@ -226,7 +226,7 @@ app.delete('/lends/:isbn', (req, res) =>{
 
     lends.splice(lendIndex, 1)
 
-    fs.writeFile(path.join(__dirname, 'lends.json'), JSON.stringify(books, null, 2), (err) => {
+    fs.writeFile(path.join(__dirname, 'data/lends.json'), JSON.stringify(books, null, 2), (err) => {
         if (err) {
             console.error('Error deleting lends', err)
             return res.sendStatus(500)
