@@ -1,7 +1,9 @@
 const express = require('express')
 const path = require('path')
 const fs = require('fs')
-const { v4: uuidv4 } = require('uuid');
+const swaggerUI = require('swagger-ui-express')
+const swaggerFile = require('./swagger-output.json')
+const { v4: uuidv4 } = require('uuid')
 
 const app = express()
 const port = 3001
@@ -234,6 +236,8 @@ app.delete('/lends/:isbn', (req, res) =>{
         return res.status(200).send(`${lendToDelete.isbn} has been deleted :(`)
     })
 })
+
+app.use('/swagger-api', swaggerUI.serve, swaggerUI.setup(swaggerFile));
 
 app.listen(port, ()=>{
     console.log(`Server listening on port ${port}`)
