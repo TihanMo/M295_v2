@@ -12,7 +12,7 @@ try {
     console.error('Error reading data', err)
 }
 
-router.get('/books', (req, res) => {
+router.get('/', (req, res) => {
     /*  #swagger.tags = ['Book']
         #swagger.description = 'Endpoint to get the list of books.'
         #swagger.parameters['isbn'] = {
@@ -23,19 +23,20 @@ router.get('/books', (req, res) => {
     } */
     const isbn = req.query.isbn
 
-    if(isbn){
+    if (isbn) {
         const book = books.find(b => b.isbn === isbn)
-    
-        if(book){
-            res.send(book)
+
+        if (book) {
+            return res.status(200).send(book)
         } else {
-            res.status(404).send('Book not found')
+            return res.status(404).send('Book not found')
         }
+    } else {
+        return res.status(200).json(books)
     }
-    res.status(200).json(books)
 })
 
-router.get('/books/:isbn', (req, res) => {
+router.get('/:isbn', (req, res) => {
     /*  #swagger.tags = ['Book']
         #swagger.description = 'Endpoint to get a book by ISBN.' 
         #swagger.parameters['isbn'] = {
@@ -55,7 +56,7 @@ router.get('/books/:isbn', (req, res) => {
     }
 })
 
-router.post('/books', (req, res) => {
+router.post('/', (req, res) => {
     /*  #swagger.tags = ['Book']
         #swagger.description = 'Endpoint to add a new book.'
         #swagger.parameters['book'] = {
@@ -86,7 +87,7 @@ router.post('/books', (req, res) => {
     }
 })
 
-router.put('/books/:isbn', (req, res) => {
+router.put('/:isbn', (req, res) => {
 /*  #swagger.tags = ['Book']
     #swagger.description = 'Endpoint to update a book.'
     #swagger.parameters['isbn'] = {
@@ -131,7 +132,7 @@ router.put('/books/:isbn', (req, res) => {
     })
 })
 
-router.delete('/books/:isbn', (req, res) =>{
+router.delete('/:isbn', (req, res) =>{
     /*  #swagger.tags = ['Book']
         #swagger.description = 'Endpoint to delete a book by ISBN.'
         #swagger.parameters['isbn'] = {
@@ -165,7 +166,7 @@ router.delete('/books/:isbn', (req, res) =>{
     })
 })
 
-router.patch('/books/:isbn', (req, res) => {
+router.patch('/:isbn', (req, res) => {
     /*  #swagger.tags = ['Book']
         #swagger.description = 'Endpoint to partially update a book.'
         #swagger.parameters['isbn'] = {

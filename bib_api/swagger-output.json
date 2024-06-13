@@ -90,7 +90,7 @@
         }
       }
     },
-    "/books/books": {
+    "/books/": {
       "get": {
         "tags": [
           "Book"
@@ -165,7 +165,7 @@
         }
       }
     },
-    "/books/books/{isbn}": {
+    "/books/{isbn}": {
       "get": {
         "tags": [
           "Book"
@@ -323,7 +323,7 @@
         }
       }
     },
-    "/lends/lends": {
+    "/lends/": {
       "get": {
         "tags": [
           "Lend"
@@ -347,50 +347,9 @@
             "description": "Not Found"
           }
         }
-      },
-      "post": {
-        "tags": [
-          "Lend"
-        ],
-        "description": "Endpoint to add a new lend.",
-        "parameters": [
-          {
-            "name": "lend",
-            "in": "body",
-            "description": "Details of the lend to add.",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "customer_id": {
-                  "type": "number",
-                  "example": 1
-                },
-                "isbn": {
-                  "type": "string",
-                  "example": "724895934-0"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "422": {
-            "description": "Unprocessable Entity"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
       }
     },
-    "/lends/lends/{isbn}": {
+    "/lends/{isbn}": {
       "get": {
         "tags": [
           "Lend"

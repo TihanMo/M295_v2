@@ -12,7 +12,7 @@ try {
     console.error('Error reading data', err)
 }
 
-router.get('/lends', async (req, res) => {
+router.get('/', async (req, res) => {
     /*  #swagger.tags = ['Lend']
         #swagger.description = 'Endpoint to get the list of lends.' */
     if (req.session.user == null) {
@@ -31,7 +31,7 @@ router.get('/lends', async (req, res) => {
     res.status(200).json(lends)
 })
 
-router.get('/lends/:isbn', async (req, res) => {
+router.get('/:isbn', async (req, res) => {
     /*  #swagger.tags = ['Lend']
         #swagger.description = 'Endpoint to get a lend by ISBN.' 
         #swagger.parameters['isbn'] = {
@@ -54,7 +54,7 @@ router.get('/lends/:isbn', async (req, res) => {
     
 })
 
-router.post('/lends', (req, res) => {
+router.post('', (req, res) => {
     /*  #swagger.tags = ['Lend']
         #swagger.description = 'Endpoint to add a new lend.'
         #swagger.parameters['lend'] = {
@@ -104,7 +104,7 @@ router.post('/lends', (req, res) => {
     })
 })
 
-router.delete('/lends/:isbn', (req, res) =>{
+router.delete('/:isbn', (req, res) =>{
     /*  #swagger.tags = ['Lend']
         #swagger.description = 'Endpoint to delete a lend by ISBN.'
         #swagger.parameters['lend'] = {
