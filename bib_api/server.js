@@ -1,5 +1,6 @@
 const express = require('express')
 const path = require('path')
+const session = require('express-session')
 const fs = require('fs')
 const swaggerUI = require('swagger-ui-express')
 const swaggerFile = require('./swagger-output.json')
@@ -10,9 +11,21 @@ const port = 3001
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+}))
 
 let books = []
 let lends = []
+const users = [
+    { email: 'admin', password: 'password' },
+    { email: 'user', password: '123456' },
+    { email: 'desk@library.example', password: 'm295' },
+    { email: 'zli', password: 'zli1234'}
+]
 
 try {
     books = JSON.parse(fs.readFileSync(path.join(__dirname, '/data/books.json'), 'utf8'))
@@ -22,10 +35,45 @@ try {
 }
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html')
+    res.status(301).redirect('/swagger-api')
+})
+
+app.post('/login', (req, res) => {
+    const { email, password } = req.body
+
+    const user = users.find((user) => user.email === email && user.password === password)
+
+    if (user) {
+        req.session.user = email
+        res.status(201).send('Login successful')
+    } else {
+        res.status(401).send('Invalid email or password')
+    }
+})
+
+app.get('/verify', (req, res) => {
+    if (req.session.user != null) {
+        res.status(200).send(`User ${req.session.user} is logged in`)
+    } else {
+        res.status(401).send('User not logged in')
+    }
+})
+
+app.delete('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+        console.error('Error destroying session:', err)
+        res.sendStatus(500)
+        } else {
+        res.status(204).send('Logged out successfully')
+        }
+    })
 })
 
 app.get('/books', (req, res) => {
+    if (req.session.user == null) {
+        return res.sendStatus(403)
+    }
     const isbn = req.query.isbn
 
     if(isbn){
@@ -41,6 +89,9 @@ app.get('/books', (req, res) => {
 })
 
 app.get('/books/:isbn', (req, res) => {
+    if (req.session.user == null) {
+        return res.sendStatus(403)
+    }
     const isbn = req.params.isbn
     const book = books.find(b => b.isbn === isbn)
 
@@ -52,6 +103,9 @@ app.get('/books/:isbn', (req, res) => {
 })
 
 app.post('/books', (req, res) => {
+    if (req.session.user == null) {
+        return res.sendStatus(403)
+    }
     const newBook = req.body
 
     if (newBook) {
@@ -69,6 +123,9 @@ app.post('/books', (req, res) => {
 })
 
 app.put('/books/:isbn', (req, res) => {
+    if (req.session.user == null) {
+        return res.sendStatus(403)
+    }
     const updatedBook = req.body
     const isbn = req.params.isbn
 
@@ -94,6 +151,9 @@ app.put('/books/:isbn', (req, res) => {
 })
 
 app.delete('/books/:isbn', (req, res) =>{
+    if (req.session.user == null) {
+        return res.sendStatus(403)
+    }
     const isbn = req.params.isbn
 
     if(!isbn){
@@ -120,6 +180,9 @@ app.delete('/books/:isbn', (req, res) =>{
 })
 
 app.patch('/books/:isbn', (req, res) => {
+    if (req.session.user == null) {
+        return res.sendStatus(403)
+    }
     const updatedFields = req.body
     const isbn = req.params.isbn
 
@@ -149,6 +212,9 @@ app.patch('/books/:isbn', (req, res) => {
 })
 
 app.get('/lends', async (req, res) => {
+    if (req.session.user == null) {
+        return res.sendStatus(403)
+    }
     const isbn = req.query.isbn
     
     if (isbn){
@@ -163,6 +229,9 @@ app.get('/lends', async (req, res) => {
 })
 
 app.get('/lends/:isbn', async (req, res) => {
+    if (req.session.user == null) {
+        return res.sendStatus(403)
+    }
     const isbn = req.params.isbn
     const lend = await lends.find(l => l.isbn === isbn)
 
@@ -175,6 +244,9 @@ app.get('/lends/:isbn', async (req, res) => {
 })
 
 app.post('/lends', (req, res) => {
+    if (req.session.user == null) {
+        return res.sendStatus(403)
+    }
     const { customer_id, isbn } = req.body
 
     if (!customer_id || !isbn) {
@@ -212,6 +284,9 @@ app.post('/lends', (req, res) => {
 
 
 app.delete('/lends/:isbn', (req, res) =>{
+    if (req.session.user == null) {
+        return res.sendStatus(403)
+    }
     const isbn = req.params.isbn
 
     if(!isbn){
