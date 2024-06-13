@@ -6,11 +6,12 @@ const doc = {
         description: 'Dokumentation für alle Endpunkte der Bibliotheks API'
     },
     host: 'localhost:3001',
-    schemes: ['http']
+    schemes: ['http'],
+    tags: []
 }
 
 const outputFile = './swagger-output.json'
-const endpointsFiles = ['./server.js', './swagger-docs.js']
+const endpointsFiles = ['./server.js']
 
 swaggerAutogen(outputFile, endpointsFiles, doc).then(() => {
     require('./server')

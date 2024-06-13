@@ -39,6 +39,17 @@ app.get('/', (req, res) => {
 })
 
 app.post('/login', (req, res) => {
+    /*  #swagger.tags = ['User']
+        #swagger.description = 'Endpoint to login a user.'
+        #swagger.parameters['user'] = {
+            in: 'body',
+            description: 'Details of the user to add.',
+            required: true,
+            schema: {
+                email: 'desk@library.example',
+                password: 'm295'
+            }
+        } */
     const { email, password } = req.body
 
     const user = users.find((user) => user.email === email && user.password === password)
@@ -52,6 +63,8 @@ app.post('/login', (req, res) => {
 })
 
 app.get('/verify', (req, res) => {
+    /*  #swagger.tags = ['User']
+        #swagger.description = 'Endpoint to verify if the user is logged in.' */
     if (req.session.user != null) {
         res.status(200).send(`User ${req.session.user} is logged in`)
     } else {
@@ -60,6 +73,8 @@ app.get('/verify', (req, res) => {
 })
 
 app.delete('/logout', (req, res) => {
+    /*  #swagger.tags = ['User']
+        #swagger.description = 'Endpoint to logout a user.' } */
     req.session.destroy((err) => {
         if (err) {
         console.error('Error destroying session:', err)
@@ -71,9 +86,14 @@ app.delete('/logout', (req, res) => {
 })
 
 app.get('/books', (req, res) => {
-    if (req.session.user == null) {
-        return res.sendStatus(403)
-    }
+    /*  #swagger.tags = ['Book']
+        #swagger.description = 'Endpoint to get the list of books.'
+        #swagger.parameters['isbn'] = {
+            in: 'query',
+            description: 'ISBN of the book to search for.',
+            required: false,
+            type: 'string'
+    } */
     const isbn = req.query.isbn
 
     if(isbn){
@@ -89,9 +109,15 @@ app.get('/books', (req, res) => {
 })
 
 app.get('/books/:isbn', (req, res) => {
-    if (req.session.user == null) {
-        return res.sendStatus(403)
-    }
+    /*  #swagger.tags = ['Book']
+        #swagger.description = 'Endpoint to get a book by ISBN.' 
+        #swagger.parameters['isbn'] = {
+            in: 'path',
+            description: 'ISBN of the book.',
+            required: true,
+            type: 'string'
+        }
+    */
     const isbn = req.params.isbn
     const book = books.find(b => b.isbn === isbn)
 
@@ -103,9 +129,20 @@ app.get('/books/:isbn', (req, res) => {
 })
 
 app.post('/books', (req, res) => {
-    if (req.session.user == null) {
-        return res.sendStatus(403)
-    }
+    /*  #swagger.tags = ['Book']
+        #swagger.description = 'Endpoint to add a new book.'
+        #swagger.parameters['book'] = {
+            in: 'body',
+            description: 'Details of the book to add.',
+            required: true,
+            schema: {
+                isbn: '978-3-16-148410-0',
+                title:'The Great Gatsby',
+                author:'F. Scott Fitzgerald',
+                publisher:'Scribner',
+                year: 1925
+            }
+        } */
     const newBook = req.body
 
     if (newBook) {
@@ -123,9 +160,26 @@ app.post('/books', (req, res) => {
 })
 
 app.put('/books/:isbn', (req, res) => {
-    if (req.session.user == null) {
-        return res.sendStatus(403)
+/*  #swagger.tags = ['Book']
+    #swagger.description = 'Endpoint to update a book.'
+    #swagger.parameters['isbn'] = {
+        in: 'path',
+        description: 'ISBN of the book.',
+        required: false,
+        type: 'string'
     }
+    #swagger.parameters['book'] = {
+        in: 'body',
+        description: 'Updated details of the book.',
+        required: true,
+        schema: {
+            isbn:'9781234567890',
+            title:'idk',
+            author:'molmol',
+            publisher:'Unknown Publisher',
+            year:2069
+        }
+    } */
     const updatedBook = req.body
     const isbn = req.params.isbn
 
@@ -151,9 +205,14 @@ app.put('/books/:isbn', (req, res) => {
 })
 
 app.delete('/books/:isbn', (req, res) =>{
-    if (req.session.user == null) {
-        return res.sendStatus(403)
-    }
+    /*  #swagger.tags = ['Book']
+        #swagger.description = 'Endpoint to delete a book by ISBN.'
+        #swagger.parameters['isbn'] = {
+            in: 'path',
+            description: 'ISBN of the book.',
+            required: true,
+            type: 'string'
+        } */
     const isbn = req.params.isbn
 
     if(!isbn){
@@ -180,9 +239,22 @@ app.delete('/books/:isbn', (req, res) =>{
 })
 
 app.patch('/books/:isbn', (req, res) => {
-    if (req.session.user == null) {
-        return res.sendStatus(403)
-    }
+    /*  #swagger.tags = ['Book']
+        #swagger.description = 'Endpoint to partially update a book.'
+        #swagger.parameters['isbn'] = {
+            in: 'path',
+            description: 'ISBN of the book.',
+            required: true,
+            type: 'string'
+        }
+        #swagger.parameters['book'] = {
+            in: 'body',
+            description: 'Details of the book to update.',
+            required: true,
+            schema: {
+                title: 'The bad Gatsby' 
+            }
+        } */
     const updatedFields = req.body
     const isbn = req.params.isbn
 
@@ -212,6 +284,8 @@ app.patch('/books/:isbn', (req, res) => {
 })
 
 app.get('/lends', async (req, res) => {
+    /*  #swagger.tags = ['Lend']
+        #swagger.description = 'Endpoint to get the list of lends.' */
     if (req.session.user == null) {
         return res.sendStatus(403)
     }
@@ -229,6 +303,14 @@ app.get('/lends', async (req, res) => {
 })
 
 app.get('/lends/:isbn', async (req, res) => {
+    /*  #swagger.tags = ['Lend']
+        #swagger.description = 'Endpoint to get a lend by ISBN.' 
+        #swagger.parameters['isbn'] = {
+            in: 'path',
+            description: 'ISBN of the lend.',
+            required: true,
+            type: 'string'
+        } */
     if (req.session.user == null) {
         return res.sendStatus(403)
     }
@@ -244,6 +326,17 @@ app.get('/lends/:isbn', async (req, res) => {
 })
 
 app.post('/lends', (req, res) => {
+    /*  #swagger.tags = ['Lend']
+        #swagger.description = 'Endpoint to add a new lend.'
+        #swagger.parameters['lend'] = {
+            in: 'body',
+            description: 'Details of the lend to add.',
+            required: true,
+            schema: {
+                customer_id: 1,
+                isbn: '724895934-0'
+            } 
+        } */
     if (req.session.user == null) {
         return res.sendStatus(403)
     }
@@ -282,8 +375,18 @@ app.post('/lends', (req, res) => {
     })
 })
 
-
 app.delete('/lends/:isbn', (req, res) =>{
+    /*  #swagger.tags = ['Lend']
+        #swagger.description = 'Endpoint to delete a lend by ISBN.'
+        #swagger.parameters['lend'] = {
+            in: 'body',
+            description: 'Details of the lend to add.',
+            required: true,
+            schema: {
+                customer_id: 1,
+                isbn: '724895934-0'
+            } 
+        } */ 
     if (req.session.user == null) {
         return res.sendStatus(403)
     }
@@ -312,7 +415,7 @@ app.delete('/lends/:isbn', (req, res) =>{
     })
 })
 
-app.use('/swagger-api', swaggerUI.serve, swaggerUI.setup(swaggerFile));
+app.use('/swagger-api', swaggerUI.serve, swaggerUI.setup(swaggerFile))
 
 app.listen(port, ()=>{
     console.log(`Server listening on port ${port}`)
