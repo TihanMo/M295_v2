@@ -1,4 +1,4 @@
-# Modul 295 BB
+# Modul 295 Bib API
 In this repository lies an exercise for Module 295 of ZLI (Zürcher Lehrbetriebsverband ICT).
 
 The task was to create a Rest-API that handles Tasks. You can find the full API documentation under the endpoint `/swagger-ui` once you've set up the server.
