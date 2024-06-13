@@ -90,7 +90,7 @@
         }
       }
     },
-    "/books": {
+    "/books/books": {
       "get": {
         "tags": [
           "Book"
@@ -165,7 +165,7 @@
         }
       }
     },
-    "/books/{isbn}": {
+    "/books/books/{isbn}": {
       "get": {
         "tags": [
           "Book"
@@ -323,7 +323,7 @@
         }
       }
     },
-    "/lends": {
+    "/lends/lends": {
       "get": {
         "tags": [
           "Lend"
@@ -390,7 +390,7 @@
         }
       }
     },
-    "/lends/{isbn}": {
+    "/lends/lends/{isbn}": {
       "get": {
         "tags": [
           "Lend"
